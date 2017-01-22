@@ -1,5 +1,4 @@
 import {createStore} from 'redux'
-import {persistState} from 'redux-devtools'
 
 import {getReducers} from './common'
 import * as reducers from '../reducers'
