@@ -12,6 +12,11 @@ Works for
 * Reducers
 * Styles (SCSS)
 
+Do not work for React Router routes changes and throw a warning when hot reloading a component
+```
+Warning: [react-router] You cannot change <Router routes>; it will be ignored
+```
+
 Compatible with Redux Devtools Chrome extension
 
 ## Try it
@@ -21,5 +26,4 @@ Launch app with `npm start`
 
 ## Next improvements
 
-* React Router
 * Webpack 2 compatibility
