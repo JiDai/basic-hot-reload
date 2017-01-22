@@ -18,17 +18,17 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin()
     ],
     resolve: {
-        extensions: ['', '.js']
+        extensions: ['.js']
     },
     module: {
-        loaders: [{
+        rules: [{
             test: /\.js$/,
-            loaders: ['babel'],
+            use: ['babel-loader'],
             exclude: /node_modules/,
             include: __dirname
         }, {
             test: /\.scss$/,
-            loaders: ['style', 'css', 'sass'],
+            use: ['style-loader', 'css-loader', 'sass-loader'],
             exclude: /node_modules/,
             include: __dirname
         }]
