@@ -3,9 +3,9 @@
 This a very small app to demonstrates the usage of React Hot Loader
 
 Requirements: 
-- Webpack 1
+- Webpack 2.2
 - Redux 3.6
-- React Hot Loader 3
+- React Hot Loader 3 beta 6
 
 Works for
 * Components
@@ -26,4 +26,4 @@ Launch app with `npm start`
 
 ## Next improvements
 
-* Webpack 2 compatibility
+* Fix react router warning ?
