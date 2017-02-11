@@ -1,6 +1,8 @@
 const fsbx = require("fuse-box");
 
-console.log("process.env.NODE_ENV : ", process.env.NODE_ENV);
+const dotenv = require('dotenv')
+const env = dotenv.config().parsed // will return an object
+
 // Create FuseBox Instance
 const fuseBox = new fsbx.FuseBox({
     homeDir: "src/",
@@ -15,15 +17,13 @@ const fuseBox = new fsbx.FuseBox({
             fsbx.CSSResourcePlugin({ inline: true }),
             fsbx.CSSPlugin()
         ],
-        fsbx.EnvPlugin({
-            NODE_ENV: process.env.NODE_ENV
-        }),
+        fsbx.EnvPlugin(env),
         fsbx.BabelPlugin({
             config: {
                 sourceMaps: true,
                 presets: [["es2015", { "loose": true }], "react"],
                 plugins: [
-                    ["react-hot-loader/babel"],
+                    "react-hot-loader/babel",
                     "transform-class-properties"
                 ]
             }
