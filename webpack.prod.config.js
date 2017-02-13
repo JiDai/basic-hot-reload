@@ -11,8 +11,9 @@ module.exports = {
         publicPath: '/static/'
     },
     plugins: [
-        new webpack.optimize.UglifyJsPlugin()
-
+        new webpack.optimize.UglifyJsPlugin({
+            sourcemaps: false
+        })
     ],
     resolve: {
         extensions: ['.js']
@@ -20,7 +21,12 @@ module.exports = {
     module: {
         rules: [{
             test: /\.js$/,
-            use: ['babel-loader'],
+            use: {
+                loader: 'babel-loader',
+                query: {
+                    cacheDirectory: true
+                }
+            },
             exclude: /node_modules/,
             include: __dirname
         }, {
