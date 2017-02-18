@@ -17,6 +17,8 @@ render(
 
 if (module.hot) {
     module.hot.accept('./containers/Root', () => {
+        var i = 1
+
         const RootContainer = require('./containers/Root').default
         render(
             <AppContainer>
