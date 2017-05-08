@@ -86,7 +86,6 @@ module.exports = {
             180,
             2
         ],
-        "generator-star-spacing": 0,
-        "babel/generator-star-spacing": 1
+        "generator-star-spacing": 1,
     }
 }

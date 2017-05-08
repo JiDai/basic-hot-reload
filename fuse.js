@@ -7,10 +7,7 @@ const eslinter = require("fuse-box-eslint-plugin");
 // Create FuseBox Instance
 const fuseBox = new fsbx.FuseBox({
     homeDir: "src/",
-    sourceMap: {
-        bundleReference: "sourcemaps.js.map",
-        outFile: "./build/sourcemaps.js.map",
-    },
+    sourcemaps: true,
     outFile: "./build/bundle.js",
     plugins: [
         [
