@@ -8,7 +8,7 @@ const eslinter = require("fuse-box-eslint-plugin");
 const fuseBox = new fsbx.FuseBox({
     homeDir: "src/",
     sourcemaps: true,
-    outFile: "./build/bundle.js",
+    outFile: "./public/build/bundle.js",
     plugins: [
         [
             fsbx.SassPlugin(),
@@ -25,4 +25,6 @@ const fuseBox = new fsbx.FuseBox({
     ]
 });
 
-fuseBox.devServer("> index.js");
+fuseBox.devServer("> index.js", {
+    root: './public/'
+});

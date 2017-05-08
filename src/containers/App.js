@@ -19,6 +19,7 @@ class App extends Component {
         const {counter, actions} = this.props
         return (
             <div>
+                <img src={'/images/ed.gif'} alt="" />
                 <h1>{counter}</h1>
                 <Link to="/">Home</Link>
                 <Link to="/test">Test route</Link>

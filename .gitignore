@@ -1,11 +1,6 @@
 node_modules
 .idea
 *.iml
-logs
-*.log
-npm-debug.log*
-coverage
-.npm
+*.log*
 /.fusebox/
-/build
-!/build/index.html
+/public/build
