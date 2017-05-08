@@ -8,7 +8,7 @@ export default function configureStore (initialState) {
     const store = createStore(
         getReducers(reducers),
         initialState,
-        //window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() // eslint-disable-line no-underscore-dangle
     )
 
     if (module.hot) {
