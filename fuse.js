@@ -2,6 +2,7 @@ const fsbx = require("fuse-box");
 
 const dotenv = require('dotenv')
 const env = dotenv.config().parsed // will return an object
+const eslinter = require("fuse-box-eslint-plugin");
 
 // Create FuseBox Instance
 const fuseBox = new fsbx.FuseBox({
@@ -18,16 +19,12 @@ const fuseBox = new fsbx.FuseBox({
             fsbx.CSSPlugin()
         ],
         fsbx.EnvPlugin(env),
-        fsbx.BabelPlugin({
-            config: {
-                sourceMaps: true,
-                presets: [["es2015", { "loose": true }], "react"],
-                plugins: [
-                    "react-hot-loader/babel",
-                    "transform-class-properties"
-                ]
-            }
-        })
+        [
+            eslinter({
+                pattern: /js(x)*$/,
+            }),
+            fsbx.BabelPlugin(),
+        ]
     ]
 });
 
