@@ -13,25 +13,18 @@ const fuseBox = new fsbx.FuseBox({
     },
     outFile: "./build/bundle.js",
     plugins: [
-        eslinter({
-            pattern: /js(x)*$/,
-        }),
         [
             fsbx.SassPlugin(),
             fsbx.CSSResourcePlugin({ inline: true }),
             fsbx.CSSPlugin()
         ],
         fsbx.EnvPlugin(env),
-        fsbx.BabelPlugin({
-            config: {
-                sourceMaps: true,
-                presets: ["es2015", "react", "stage-0"],
-                plugins: [
-                    "react-hot-loader/babel",
-                    "transform-class-properties"
-                ]
-            }
-        })
+        [
+            eslinter({
+                pattern: /js(x)*$/,
+            }),
+            fsbx.BabelPlugin(),
+        ]
     ]
 });
 
