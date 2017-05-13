@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {Component, PropTypes} from 'react'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import {Link} from 'react-router'
@@ -10,10 +10,16 @@ import '../main.scss'
 
 
 class App extends Component {
+    static propTypes = {
+        counter: PropTypes.number,
+        actions: PropTypes.object
+    }
+
     render () {
         const {counter, actions} = this.props
         return (
             <div>
+                <img src={'/images/ed.gif'} alt="" />
                 <h1>{counter}</h1>
                 <Link to="/">Home</Link>
                 <Link to="/test">Test route</Link>
