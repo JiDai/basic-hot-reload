@@ -27,7 +27,8 @@
     "node-sass": "^4.5.0",
     "react-hot-loader": "^3.0.0-beta.6",
     "stylus": "^0.54.5",
-    "uglify-js": "^2.7.5"
+    "uglify-js": "^2.7.5",
+    "express": "^4.14.0"
   },
   "dependencies": {
     "react": "^15.4.2",
