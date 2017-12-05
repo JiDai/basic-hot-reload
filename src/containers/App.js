@@ -1,7 +1,8 @@
-import React, {Component, PropTypes} from 'react'
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
-import {Link} from 'react-router'
+import {Link} from 'react-router-dom'
 
 import Button from '../components/Button'
 import * as counterActions from '../actions/counter'
@@ -19,14 +20,14 @@ class App extends Component {
         const {counter, actions} = this.props
         return (
             <div>
-                <img src={'/images/ed.gif'} alt="" />
-                <h1>{counter}</h1>
                 <Link to="/">Home</Link>
                 <Link to="/test">Test route</Link>
                 <div>
                     <Button handleClick={actions.decrement}>Remove</Button>
+                    <span className='counter'>{counter}</span>
                     <Button handleClick={actions.increment}>Add</Button>
                 </div>
+                <img src={'/images/ed.gif'} alt="" />
             </div>
         )
     }

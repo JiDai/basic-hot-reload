@@ -4,11 +4,11 @@ const dotenv = require('dotenv')
 const env = dotenv.config().parsed // will return an object
 
 // Create FuseBox Instance
-fsbx.FuseBox.init({
+const fuse = fsbx.FuseBox.init({
     homeDir: "src/",
     log: true,
     cache: false,
-    outFile: "./build/bundle.prod.js",
+    output: "./public/build/$name.js",
     plugins: [
         [
             fsbx.SassPlugin(),
@@ -26,6 +26,13 @@ fsbx.FuseBox.init({
                 ]
             }
         }),
-        fsbx.UglifyJSPlugin()
+        fsbx.UglifyJSPlugin(),
+        fsbx.WebIndexPlugin({
+            target : '../index.html'
+        })
     ]
-}).bundle("> index.js");
+})
+fuse.bundle('bundle.prod')
+    .target("browser")
+    .instructions(`> index.js`);
+fuse.run();
