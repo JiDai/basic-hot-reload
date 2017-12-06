@@ -1,7 +1,7 @@
-const fsbx = require("fuse-box");
-const path = require("path");
-const express = require("express");
-const eslinter = require("fuse-box-eslint-plugin");
+const fsbx = require('fuse-box')
+const path = require('path')
+const express = require('express')
+// const eslinter = require('fuse-box-eslint-plugin')
 
 // Récupération de la config d'environnement via DotEnv
 const dotenv = require('dotenv')
@@ -10,9 +10,9 @@ const env = dotenv.config().parsed // will return an object
 // Create FuseBox Instance
 const fuseBox = new fsbx.FuseBox({
     // Code base root path of your app
-    homeDir: "src/",
+    homeDir: 'src/',
     // All JS will be concat in this file
-    output: "public/build/$name.js",
+    output: 'public/build/$name.js',
     // Configure source maps
     sourcemaps: true,
     // Plugins to handle different types of file to bundle
@@ -43,37 +43,25 @@ const fuseBox = new fsbx.FuseBox({
             path: 'build'
         })
     ]
-});
+})
 
 // Launch the dev server
 fuseBox
-    .bundle("bundle")
-    .instructions("> index.js")
-    .target("browser")
-    .watch("src/**")
+    .bundle('bundle')
+    .instructions('> index.js')
+    .target('browser')
+    .watch('src/**')
     .hmr()
 
 // fuseBox.dev()
 fuseBox.dev({ root: false }, server => {
-    const dist = path.resolve("./public/");
-    const app = server.httpServer.app;
-    app.use('/build', express.static(path.join(dist, 'build')));
-    app.use('/images', express.static(path.join(dist, 'images')));
-    app.get("*", function (req, res) {
-        res.sendFile(path.join(dist, "index.html"));
-    });
+    const dist = path.resolve('./public/')
+    const app = server.httpServer.app
+    app.use('/build', express.static(path.join(dist, 'build')))
+    app.use('/images', express.static(path.join(dist, 'images')))
+    app.get('*', function (req, res) {
+        res.sendFile(path.join(dist, 'index.html'))
+    })
 })
-//
-//
-// const server = fuseBox.dev("> index.js", {
-//     root: './public/'
-// });
-// // Declare all static file to be served
-// server.httpServer.app.use(express.static(path.join('public')));
-// // Fallback to index.html for all routes (and wil be handled by React-router)
-// server.httpServer.app.get('*', function (req, res) {
-//     res.sendFile(path.resolve('public', 'index.html'));
-// });
 
-// Bundle configuration
 fuseBox.run()

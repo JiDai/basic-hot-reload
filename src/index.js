@@ -6,6 +6,8 @@ import Root from './containers/Root'
 
 const store = configureStore()
 
+console.log(process.env.TEST)
+
 render(
     <AppContainer>
         <Root
