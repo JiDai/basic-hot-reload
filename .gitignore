@@ -4,3 +4,4 @@ node_modules
 *.log*
 /.fusebox/
 /public/build
+/public/index.html
