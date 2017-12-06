@@ -31,6 +31,9 @@ const fuseBox = new fsbx.FuseBox({
         // Handle JS files
         // Here, we have an array to chain plugins
         [
+            // eslinter({
+            //     pattern: /js(x)*$/,
+            // }),
             // Babel used for compile jsx files
             fsbx.BabelPlugin(),
         ],
