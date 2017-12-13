@@ -1,15 +1,20 @@
 import React from 'react'
-import {Router, Route, IndexRoute} from 'react-router'
+import { Route } from 'react-router'
+import { BrowserRouter, Switch } from 'react-router-dom'
 
 import App from './containers/App'
 
 
-let getRouter = function (history) {
+let getRouter = function () {
     return (
-        <Router history={history}>
-            <Route path="/" component={App} />
-            <Route path="/test" component={App} />
-        </Router>
+        <BrowserRouter>
+            <Switch>
+                <Route path="/"
+                    component={App} />
+                <Route path="/test"
+                    component={App} />
+            </Switch>
+        </BrowserRouter>
     )
 }
 
