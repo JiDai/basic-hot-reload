@@ -1,9 +1,8 @@
 node_modules
 .idea
 *.iml
-dist
-logs
-*.log
-npm-debug.log*
-coverage
-.npm
+*.log*
+/.fusebox/
+/public/
+/dist/
+/.cache/
